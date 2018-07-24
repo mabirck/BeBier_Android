@@ -16,7 +16,7 @@
 
     <!-- Temp Strings -->
     <string name="action_settings">Settings</string>
-    <string name="toolbar_title">Contacts</string>
+    <string name="toolbar_title">Cervejas</string>
     <string name="action_search">Search</string>
     <string name="search_hint">Type name…</string>
 </resources>
