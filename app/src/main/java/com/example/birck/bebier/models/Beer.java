@@ -4,19 +4,19 @@ public class Beer {
     private String name;
     private String abv;
     private String about;
-    private String beerStyle;
-    private String photoUrl;
-    private String estCal;
+    private String beer_style;
+    private String photo_url;
+    private String est_cal;
     private String brewer;
     private String ibu;
 
-    public Beer(String name, String abv, String about, String beerStyle, String photoUrl, String estCal, String brewer, String ibu) {
+    public Beer(String name, String abv, String about, String beer_style, String photo_url, String est_cal, String brewer, String ibu) {
         this.name = name;
         this.abv = abv;
         this.about = about;
-        this.beerStyle = beerStyle;
-        this.photoUrl = photoUrl;
-        this.estCal = estCal;
+        this.beer_style = beer_style;
+        this.photo_url = photo_url;
+        this.est_cal = est_cal;
         this.brewer = brewer;
         this.ibu = ibu;
     }
@@ -48,28 +48,28 @@ public class Beer {
         this.about = about;
     }
 
-    public String getBeerStyle() {
-        return beerStyle;
+    public String getBeer_style() {
+        return beer_style;
     }
 
-    public void setBeerStyle(String beerStyle) {
-        this.beerStyle = beerStyle;
+    public void setBeer_style(String beer_style) {
+        this.beer_style = beer_style;
     }
 
-    public String getPhotoUrl() {
-        return photoUrl;
+    public String getPhoto_url() {
+        return photo_url;
     }
 
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
+    public void setPhoto_url(String photo_url) {
+        this.photo_url = photo_url;
     }
 
-    public String getEstCal() {
-        return estCal;
+    public String getEst_cal() {
+        return est_cal;
     }
 
-    public void setEstCal(String estCal) {
-        this.estCal = estCal;
+    public void setEst_cal(String est_cal) {
+        this.est_cal = est_cal;
     }
 
     public String getBrewer() {

@@ -19,12 +19,12 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.birck.bebier.models.Beer;
+import com.example.birck.bebier.utils.JSONReader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.example.birck.bebier.utils.JSONReader.beerNames;
-import static com.example.birck.bebier.utils.JSONReader.getBeerData;
 
 public class SearchActivity extends AppCompatActivity implements ContactsAdapter.ContactsAdapterListener {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -69,10 +69,7 @@ public class SearchActivity extends AppCompatActivity implements ContactsAdapter
 
         beerListStr = data.first;
 
-        for (String beerName:
-             beerListStr){
-            beerList.add(getBeerData(getApplicationContext(), beerName));
-        }
+        beerList.addAll(JSONReader.getBeersData(this));
 
     }
 
@@ -178,7 +175,7 @@ public class SearchActivity extends AppCompatActivity implements ContactsAdapter
 
     @Override
     public void onBeerSelected(Beer beer) {
-        Toast.makeText(getApplicationContext(), "Selected: " + beer.getName() + ", " + beer.getBeerStyle(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Selected: " + beer.getName() + ", " + beer.getBeer_style(), Toast.LENGTH_LONG).show();
     }
 }
 

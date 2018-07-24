@@ -68,10 +68,10 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         final Beer beer = beerListFiltered.get(position);
         holder.name.setText(beer.getName());
-        holder.phone.setText(beer.getBeerStyle());
+        holder.phone.setText(beer.getBeer_style());
 
         Glide.with(context)
-                .load(beer.getPhotoUrl())
+                .load(beer.getPhoto_url())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.thumbnail);
     }
@@ -95,7 +95,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
 
                         // name match condition. this might differ depending on your requirement
                         // here we are looking for name or phone number match
-                        if (row.getName().toLowerCase().contains(charString.toLowerCase()) || row.getBeerStyle().contains(charSequence)) {
+                        if (row.getName().toLowerCase().contains(charString.toLowerCase()) || row.getBeer_style().contains(charSequence)) {
                             filteredList.add(row);
                         }
                     }

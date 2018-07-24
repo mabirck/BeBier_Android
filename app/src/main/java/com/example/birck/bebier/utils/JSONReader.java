@@ -5,7 +5,10 @@ import android.util.Log;
 import android.util.Pair;
 
 import com.example.birck.bebier.models.Beer;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -13,37 +16,24 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
 public class JSONReader {
     private static String TAG = JSONReader.class.getSimpleName();
-    public static Beer getBeerData(Context context, String beerName){
+
+    public static ArrayList<Beer> getBeersData(Context context){
         try {
-            JSONObject json = new JSONObject(loadJSONFromAsset(context, "data.json"));
-            Beer beer = new Beer();
-            beer.setName(beerName);
-            beer.setAbout(json.getJSONObject(beerName).get("about").toString());
-            beer.setAbv(json.getJSONObject(beerName).get("abv").toString());
-            beer.setBeerStyle(json.getJSONObject(beerName).get("beer_style").toString());
-            beer.setPhotoUrl(json.getJSONObject(beerName).get("photo_url").toString());
-            beer.setEstCal(json.getJSONObject(beerName).get("est_cal").toString());
-            beer.setBrewer(json.getJSONObject(beerName).get("brewer").toString());
-            beer.setIbu(json.getJSONObject(beerName).get("ibu").toString());
-
-            Log.d(TAG, beer.getName());
-            Log.d(TAG, beer.getBrewer());
-            Log.d(TAG, beer.getAbv());
-            Log.d(TAG, beer.getPhotoUrl());
-            Log.d(TAG, beer.getBeerStyle());
-            Log.d(TAG, beer.getEstCal());
-            Log.d(TAG, beer.getIbu());
-            Log.d(TAG, beer.getAbout());
-
-            return  beer;
+            JSONArray json = new JSONArray(loadJSONFromAsset(context, "dataFast.json"));
+            Type type = new TypeToken<ArrayList<Beer>>(){}.getType();
+            ArrayList<Beer> beers = new Gson().fromJson(json.toString(), type);
+            Log.d(TAG, "LEN " + beers.size());
+            return  beers;
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.e(TAG, e.getMessage());
         }
         return null;
     }
@@ -61,6 +51,7 @@ public class JSONReader {
                 }
                 beerNames.add(key);
             }
+//            Log.d(TAG, recomendations.toString());
             return new Pair<>(beerNames, recomendations);
         } catch (JSONException e) {
             e.printStackTrace();

@@ -5,7 +5,6 @@
     tools:context="com.example.birck.bebier.SearchActivity">
     <item
         android:id="@+id/action_search"
-        android:icon="@drawable/ic_search_black_24dp"
         android:orderInCategory="100"
         android:title="@string/action_search"
         app:showAsAction="always"
