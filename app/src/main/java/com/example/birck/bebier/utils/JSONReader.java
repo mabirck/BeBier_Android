@@ -40,6 +40,8 @@ public class JSONReader {
             Log.d(TAG, beer.getEstCal());
             Log.d(TAG, beer.getIbu());
             Log.d(TAG, beer.getAbout());
+
+            return  beer;
         } catch (JSONException e) {
             e.printStackTrace();
         }
