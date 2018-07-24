@@ -37,6 +37,24 @@ public class JSONReader {
         }
         return null;
     }
+    public static Beer getBeerData(Context context, String beerName){
+        try {
+            JSONObject json = new JSONObject(loadJSONFromAsset(context, "data.json"));
+            Beer beer = new Beer();
+            beer.setName(beerName);
+            beer.setAbout(json.getJSONObject(beerName).get("about").toString());
+            beer.setAbv(json.getJSONObject(beerName).get("abv").toString());
+            beer.setBeer_style(json.getJSONObject(beerName).get("beer_style").toString());
+            beer.setPhoto_url(json.getJSONObject(beerName).get("photo_url").toString());
+            beer.setEst_cal(json.getJSONObject(beerName).get("est_cal").toString());
+            beer.setBrewer(json.getJSONObject(beerName).get("brewer").toString());
+            beer.setIbu(json.getJSONObject(beerName).get("ibu").toString());
+            return beer;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static Pair<ArrayList<String>, HashMap<String, ArrayList<String>>> beerNames(Context context) {
         ArrayList<String> beerNames = new ArrayList<>();
         HashMap<String, ArrayList<String>> recomendations = new HashMap<>();

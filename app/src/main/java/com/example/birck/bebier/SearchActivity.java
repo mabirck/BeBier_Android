@@ -179,7 +179,7 @@ public class SearchActivity extends AppCompatActivity implements ContactsAdapter
 
     @Override
     public void onBeerSelected(final Beer beer) {
-        Toast.makeText(getApplicationContext(), "Selected: " + beer.getName() + ", " + beer.getBeerStyle(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Selected: " + beer.getName() + ", " + beer.getBeer_style(), Toast.LENGTH_LONG).show();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

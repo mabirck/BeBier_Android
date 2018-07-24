@@ -41,10 +41,10 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         final Beer beer = getBeerData(this.mContext, mData.get(position));
         holder.name.setText(beer.getName());
-        holder.phone.setText(beer.getBeerStyle());
+        holder.phone.setText(beer.getBeer_style());
 
         Glide.with(this.mContext)
-                .load(beer.getPhotoUrl())
+                .load(beer.getPhoto_url())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.thumbnail);
     }
