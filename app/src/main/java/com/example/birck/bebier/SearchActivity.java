@@ -2,9 +2,11 @@ package com.example.birck.bebier;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -25,6 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.example.birck.bebier.utils.JSONReader.beerNames;
+import static com.example.birck.bebier.utils.JSONReader.getBeerData;
 
 public class SearchActivity extends AppCompatActivity implements ContactsAdapter.ContactsAdapterListener {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -172,10 +175,19 @@ public class SearchActivity extends AppCompatActivity implements ContactsAdapter
             getWindow().setStatusBarColor(Color.WHITE);
         }
     }
+    private static int TIME_OUT = 1000; //Time to launch the another activity
 
     @Override
-    public void onBeerSelected(Beer beer) {
-        Toast.makeText(getApplicationContext(), "Selected: " + beer.getName() + ", " + beer.getBeer_style(), Toast.LENGTH_LONG).show();
+    public void onBeerSelected(final Beer beer) {
+        Toast.makeText(getApplicationContext(), "Selected: " + beer.getName() + ", " + beer.getBeerStyle(), Toast.LENGTH_LONG).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(SearchActivity.this, RecommendationActivity.class);
+                i.putExtra("data",data.second.get(beer.getName()));
+                startActivity(i);
+            }
+        }, TIME_OUT);
     }
 }
 
