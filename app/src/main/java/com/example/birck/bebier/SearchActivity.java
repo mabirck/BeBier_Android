@@ -18,7 +18,6 @@ import android.util.Pair;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.birck.bebier.models.Beer;
 import com.example.birck.bebier.utils.JSONReader;
@@ -27,7 +26,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.example.birck.bebier.utils.JSONReader.beerNames;
-import static com.example.birck.bebier.utils.JSONReader.getBeerData;
 
 public class SearchActivity extends AppCompatActivity implements ContactsAdapter.ContactsAdapterListener {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -76,40 +74,6 @@ public class SearchActivity extends AppCompatActivity implements ContactsAdapter
 
     }
 
-//    /**
-//     * fetches json by making http calls
-//     */
-//    private void fetchContacts() {
-//        JsonArrayRequest request = new JsonArrayRequest(URL,
-//                new Response.Listener<JSONArray>() {
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//                        if (response == null) {
-//                            Toast.makeText(getApplicationContext(), "Couldn't fetch the contacts! Pleas try again.", Toast.LENGTH_LONG).show();
-//                            return;
-//                        }
-//
-//                        List<Contact> items = new Gson().fromJson(response.toString(), new TypeToken<List<Contact>>() {
-//                        }.getType());
-//
-//                        // adding contacts to contacts list
-//                        contactList.clear();
-//                        contactList.addAll(items);
-//
-//                        // refreshing recycler view
-//                        mAdapter.notifyDataSetChanged();
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                // error in getting json
-//                Log.e(TAG, "Error: " + error.getMessage());
-//                Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        MyApplication.getInstance().addToRequestQueue(request);
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -179,7 +143,7 @@ public class SearchActivity extends AppCompatActivity implements ContactsAdapter
 
     @Override
     public void onBeerSelected(final Beer beer) {
-        Toast.makeText(getApplicationContext(), "Selected: " + beer.getName() + ", " + beer.getBeer_style(), Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), "Selected: " + beer.getName() + ", " + beer.getBeer_style(), Toast.LENGTH_LONG).show();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
