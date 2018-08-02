@@ -21,7 +21,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginVertical="15dp">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -40,19 +41,21 @@
                     android:textStyle="bold"
                     android:layout_marginRight="2dp"
                     android:text="Nome da cerveja"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    />
 
             </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -73,7 +76,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -94,7 +97,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -114,7 +117,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -134,7 +137,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     android:orientation="horizontal">
 
                     <TextView
