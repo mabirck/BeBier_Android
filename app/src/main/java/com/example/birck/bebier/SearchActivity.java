@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,7 @@ import android.util.Pair;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 
 import com.example.birck.bebier.models.Beer;
 import com.example.birck.bebier.utils.JSONReader;
@@ -128,7 +130,6 @@ public class SearchActivity extends AppCompatActivity implements ContactsAdapter
             searchView.setIconified(true);
             return;
         }
-        super.onBackPressed();
     }
 
     private void whiteNotificationBar(View view) {
@@ -143,6 +144,10 @@ public class SearchActivity extends AppCompatActivity implements ContactsAdapter
 
     @Override
     public void onBeerSelected(final Beer beer) {
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.getIndeterminateDrawable().setColorFilter(getResources()
+                .getColor(R.color.colorPrimaryDark), PorterDuff.Mode.SRC_IN);
+        progressBar.setVisibility(View.VISIBLE);
 //        Toast.makeText(getApplicationContext(), "Selected: " + beer.getName() + ", " + beer.getBeer_style(), Toast.LENGTH_LONG).show();
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -150,8 +155,9 @@ public class SearchActivity extends AppCompatActivity implements ContactsAdapter
                 Intent i = new Intent(SearchActivity.this, RecommendationActivity.class);
                 i.putExtra("data",data.second.get(beer.getName()));
                 startActivity(i);
+                finish();
             }
-        }, TIME_OUT);
+        }, 0);
     }
 }
 
